@@ -9,7 +9,7 @@ class Product{
   String? category;
   String? brand;
   double? price;
-  Bool? isPromo;
+  bool? isPromo;
   
   Product({
     this.id,

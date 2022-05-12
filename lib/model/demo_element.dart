@@ -18,10 +18,17 @@ class DemoElement {
     Category('assets/icons/printing.png', 'Printing'),
   ];
 
-/*
   static List<Product> products = [
     Product(
-      id: ShortUuid.uuid,
-      image: )
-  ]*/
+        id: '1a1a1a1a1a1a',
+        image: 'assets/images/macbook.jpg',
+        title:
+            'MacBook Pro 14" Laptop - Apple M1 Pro chip - 16GB Memory - 512GB SSD (Latest Model) - Silver',
+        modelTag: 'Model: MKGR3LL/A',
+        rating: 50.0,
+        category: 'Laptop',
+        brand: 'Apple',
+        price: 1749.00,
+        isPromo: false)
+  ];
 }
