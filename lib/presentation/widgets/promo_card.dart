@@ -43,7 +43,7 @@ class PromoCard extends StatelessWidget {
                           height: 150,
                           width: 150,
                           child: Image.asset(
-                            product!.image!,
+                            product.image!,
                           )),
                     ),
                     Container(
@@ -74,7 +74,7 @@ class PromoCard extends StatelessWidget {
                       padding:
                           const EdgeInsets.only(left: 40, right: 40, top: 40),
                       child: Text(
-                        product!.title!,
+                        product.title!,
                         style: const TextStyle(
                           fontSize: 17.0,
                           height: 1.5,
@@ -92,7 +92,7 @@ class PromoCard extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 22, left: 20),
                           child: Text(
-                            product!.modelTag!,
+                            product.modelTag!,
                             style: const TextStyle(fontSize: 11),
                           ),
                         ),
@@ -104,7 +104,7 @@ class PromoCard extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(top: 22, left: 100),
                           child: Text(
-                            product!.price!.toString(),
+                            product.price.toString(),
                             style: const TextStyle(
                                 fontSize: 25, fontWeight: FontWeight.w700),
                           ),

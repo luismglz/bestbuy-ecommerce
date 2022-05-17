@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:best_buy/presentation/widget/search_bar.dart';
-import 'package:best_buy/presentation/widget/cart.dart';
+import 'package:best_buy/presentation/widgets/search_bar.dart';
+import 'package:best_buy/presentation/widgets/cart.dart';
 import 'package:best_buy/model/demo_element.dart';
 
 class Header extends StatelessWidget {

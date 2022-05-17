@@ -1,11 +1,11 @@
 import 'package:best_buy/model/product.dart';
 import 'package:flutter/material.dart';
-import 'package:best_buy/presentation/widget/category_card.dart';
-import 'package:best_buy/presentation/widget/header.dart';
-import 'package:best_buy/presentation/widget/section.dart';
-import 'package:best_buy/presentation/widget/category_card.dart';
-import 'package:best_buy/presentation/widget/list_section.dart';
-import 'package:best_buy/presentation/widget/promo_card.dart';
+import 'package:best_buy/presentation/widgets/category_card.dart';
+import 'package:best_buy/presentation/widgets/header.dart';
+import 'package:best_buy/presentation/widgets/section.dart';
+import 'package:best_buy/presentation/widgets/category_card.dart';
+import 'package:best_buy/presentation/widgets/list_section.dart';
+import 'package:best_buy/presentation/widgets/promo_card.dart';
 import 'package:best_buy/model/demo_element.dart';
 import 'package:best_buy/presentation/screen/product_detail.dart';
 
@@ -41,17 +41,24 @@ Product? product;
           Expanded(
               child: ListView(
             children: [
-              PromoCard(
-                image: 'assets/images/macbook.jpg',
-                title:
-                    'MacBook Pro 14" Laptop - Apple M1 Pro chip - 16GB Memory - 512GB SSD (Latest Model) - Silver',
-                modelTag: 'Model: MKGR3LL/A',
-                ratingPath: 'assets/icons/rating5.svg',
-                price: 1749.00,
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProductDetail(product: snapshot.data[index],)))
-                },
-              ),
+              <Widget>[
+            DemoElement.products.map((product) {
+              return PromoCard(
+                product: Product(
+                  id: product.id,
+                  image: product.image,
+                  title: product.title,
+                  modelTag: product.modelTag!,
+                  rating: product.rating,
+                  brand: product.brand,
+                  price: product.price,
+                  isPromo: product.isPromo
+                ),
+                  onTap: () {});
+            }).toList(),
+            ];
+            ]
+             /*
               PromoCard(
                 image: 'assets/images/pixel.jpg',
                 title: 'Google - Pixel 6 256GB (Unlocked) - Sorta Seafoam',
@@ -79,7 +86,7 @@ Product? product;
                 ratingPath: 'assets/icons/rating5.svg',
                 price: 899.99,
                 onTap: () {},
-              ),
+              ),*/
             ],
           ))
         ],

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:best_buy/common/constants.dart';
 
 class Section extends StatelessWidget {
-  final String title;
+  final String? title;
   final List<Widget> children;
 
   const Section(this.title, this.children, {Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class Section extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                title,
+                title!,
                 style: const TextStyle(
                     fontSize: 19.0, height: 1, fontWeight: FontWeight.w600),
               ),
@@ -26,7 +26,7 @@ class Section extends StatelessWidget {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   children: const [
                     Text(
-                      'View alltttttt',
+                      'View all',
                       style: TextStyle(
                         fontSize: 16.0,
                         height: 1,

@@ -4,7 +4,10 @@ import 'category.dart';
 import 'product.dart';
 import 'package:short_uuids/short_uuids.dart';
 
+var uuid = ShortUuid();
+
 class DemoElement {
+  
   static int numberOfItemsInCart = 4;
 
   static List<Category> categories = [
@@ -20,7 +23,7 @@ class DemoElement {
 
   static List<Product> products = [
     Product(
-        id: '1a1a1a1a1a1a',
+        id: (uuid.generate()),
         image: 'assets/images/macbook.jpg',
         title:
             'MacBook Pro 14" Laptop - Apple M1 Pro chip - 16GB Memory - 512GB SSD (Latest Model) - Silver',

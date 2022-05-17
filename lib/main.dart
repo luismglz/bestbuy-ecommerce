@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:best_buy/presentation/widget/category_card.dart';
-import 'package:best_buy/presentation/widget/promo_card.dart';
+import 'package:best_buy/presentation/widgets/category_card.dart';
+import 'package:best_buy/presentation/widgets/promo_card.dart';
 import 'package:best_buy/model/demo_element.dart';
-import 'package:best_buy/presentation/widget/list_section.dart';
-import 'package:best_buy/presentation/widget/cart.dart';
-import 'package:best_buy/presentation/widget/search_bar.dart';
+import 'package:best_buy/presentation/widgets/list_section.dart';
+import 'package:best_buy/presentation/widgets/cart.dart';
+import 'package:best_buy/presentation/widgets/search_bar.dart';
 import 'package:best_buy/presentation/screen/home_screen.dart';
 
 void main() {
