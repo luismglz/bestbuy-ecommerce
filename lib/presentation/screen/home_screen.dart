@@ -38,7 +38,7 @@ Product? product;
           const ListSection(
             'Today\'s popular picks',
           ),
-          Expanded(
+          Container(
               child: ListView(
             children: [
               <Widget>[
@@ -57,7 +57,16 @@ Product? product;
                   onTap: () {});
             }).toList(),
             ];
-            ]
+
+            ],
+          ),
+      ))
+    ));
+  }
+}
+
+
+            
              /*
               PromoCard(
                 image: 'assets/images/pixel.jpg',
@@ -87,10 +96,3 @@ Product? product;
                 price: 899.99,
                 onTap: () {},
               ),*/
-            ],
-          ))
-        ],
-      )),
-    );
-  }
-}
