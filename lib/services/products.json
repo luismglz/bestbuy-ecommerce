@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "id": "11",
+      "image": "https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/Google/Google-Pixel-6/Sorta-Seafoam/Google-Pixel-6-Sorta-Seafoam-frontimage.png",
+      "title": "Google - Pixel 6 256GB (Unlocked) - Sorta Seafoam",
+      "modelTag": "Model: GA03910-US",
+      "rating": 70.6,
+      "category": "Phone",
+      "brand": "Google",
+      "price": 649.00,
+      "isPromo": false
+    },
+    {
+      "id": "22",
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/latin/2202/gallery/latin-galaxy-s22-ultra-s908-sm-s908ezkjtpa-530979819?$650_519_PNG$",
+      "title": "Samsung - Galaxy S22 Ultra 128GB (Unlocked) - Phantom Black",
+      "modelTag": "Model: SM-S908UZKAXAA",
+      "rating": 90.0,
+      "category": "Phone",
+      "brand": "Samsung",
+      "price": 1199.99,
+      "isPromo": false
+    },
+    {
+      "id": "33",
+      "image": "https://static-www.o2.co.uk/sites/default/files/iphone-13-pro-alpine-green-sku-header-080322.png",
+      "title": "Apple - iPhone 13 Pro 5G 128GB - Alpine Green (Unlocked)",
+      "modelTag": "Model: MNDT3LL/A",
+      "rating": 90.0,
+      "category": "Phone",
+      "brand": "Apple",
+      "price": 899.99,
+      "isPromo": false
+    }
+  ]
+}
