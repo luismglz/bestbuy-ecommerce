@@ -49,22 +49,47 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }
 
-                return Container(
-                  child: ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: snapshot.data.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ListTile(
-                          title: Text(snapshot.data[index].title),
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProductDetail()),
-                            );
-                          },
-                        );
-                      }),
+                return Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: snapshot.data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Padding(
+                            
+                            padding: const EdgeInsets.all(7.0),
+                            child: Card(
+                              
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    children: [
+                                      Text(
+                                        snapshot.data[index].title,
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          overflow: TextOverflow.ellipsis,
+                                          )
+                                        ),
+                                        Image.network(
+                                          snapshot.data[index].image,
+                                          height: 70,
+                                          )
+                                      
+                                    ],
+                                  )
+                                ],
+                              )
+                              
+                            ),
+                          );
+                        }),
+                  ),
                 );
               }))
     ])));

@@ -8,7 +8,7 @@
     "category": "Phone",
     "brand": "Google",
     "price": 649.00,
-    "isPromo": false
+    "isPromo": 0
   },
   {
     "id": "22",
@@ -19,7 +19,7 @@
     "category": "Phone",
     "brand": "Samsung",
     "price": 1199.99,
-    "isPromo": false
+    "isPromo": 0
   },
   {
     "id": "33",
@@ -30,6 +30,6 @@
     "category": "Phone",
     "brand": "Apple",
     "price": 899.99,
-    "isPromo": false
+    "isPromo": 0
   }
 ]
