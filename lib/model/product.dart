@@ -1,7 +1,7 @@
 import 'dart:ffi';
 
 class Product {
-  String? id;
+  int? id;
   String? image;
   String? title;
   String? modelTag;
@@ -23,7 +23,7 @@ class Product {
       this.isPromo});
 
   Product.fromJson(Map<String, dynamic> json) {
-    id = json['id'].toString();
+    id = json['id'];
     image = json['image'];
     title = json['title'];
     modelTag = json['modelTag'];

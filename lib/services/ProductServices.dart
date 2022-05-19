@@ -6,7 +6,7 @@ import 'dart:convert';
 class ProductServices {
 
   Future<List<Product>> getProducts() async {
-    var url = Uri.parse('https://mocki.io/v1/c7de1a8a-1251-402d-a9df-430a95951e8b');
+    var url = Uri.parse('http://127.0.0.1:8000/api/product/');
     var response = await http.get(url);
 
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
