@@ -4,8 +4,9 @@ import 'package:best_buy/common/constants.dart';
 class Section extends StatelessWidget {
   final String? title;
   final List<Widget> children;
+ 
 
-  const Section(this.title, this.children, {Key? key}) : super(key: key);
+  const Section(this.title, this.children,{Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

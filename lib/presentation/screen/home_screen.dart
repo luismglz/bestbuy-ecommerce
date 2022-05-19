@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:best_buy/model/product.dart';
 import 'package:best_buy/services/ProductServices.dart';
 import 'package:flutter/material.dart';
@@ -28,51 +29,60 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(children: [
       const Header(),
       Section(
-        'Categories',
-        DemoElement.categories.map((category) {
-          return CategoryCard(
-              title: category.title,
-              iconPath: category.iconPath,
-              onTap: () {
-                print(productServices.getProducts());
-              });
-        }).toList(),
+          'Categories',
+          DemoElement.categories.map((category) {
+            return CategoryCard(
+                title: category.title,
+                iconPath: category.iconPath,
+                onTap: () {
+                  print(productServices.getProducts());
+                });
+          }).toList()),
+      ListSection(
+        'Today\'s popular picks',
+        () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => ProductDetail()));
+        },
       ),
-      const ListSection('Today\'s popular picks'),
       Container(
         child: FutureBuilder(
             future: productServices.getProducts(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (!snapshot.hasData) {
+              if (snapshot.hasData) {
                 return const Center(
                   child: Text('Loading...'),
                 );
               }
-              return ListView.builder(
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        leading: Image(
-                          image: NetworkImage(snapshot.data[index].image),
+              return Container(
+                height: 300,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: snapshot.data.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(1.0),
+                        child: ListTile(
+                          leading: Image(
+                            image: NetworkImage(snapshot.data[index].image),
+                          ),
+                          title: Text(
+                            snapshot.data[index].title,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          subtitle: Text(snapshot.data[index].price),
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProductDetail(
+                                        // product: snapshot.data[index],
+                                        )));
+                          },
                         ),
-                        title: Text(
-                          snapshot.data[index].title,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        subtitle: Text(snapshot.data[index].price),
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProductDetail(
-                                        product: snapshot.data[index],
-                                      )));
-                        },
-                      ),
-                    );
-                  });
+                      );
+                    }),
+              );
             }),
       )
     ])));

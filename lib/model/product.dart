@@ -23,28 +23,29 @@ class Product {
       this.isPromo});
 
   Product.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'].toString();
     image = json['image'];
     title = json['title'];
     modelTag = json['modelTag'];
-    rating = json['rating'];
+    rating = json['rating'].toDouble();
     category = json['category'];
     brand = json['brand'];
-    price = json['price'];
+    price = json['price'].toDouble();
     isPromo = json['isPromo'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['image'] = this.image;
-    data['title'] = this.title;
-    data['modelTag'] = this.modelTag;
-    data['rating'] = this.rating;
-    data['category'] = this.category;
-    data['brand'] = this.brand;
-    data['price'] = this.price;
-    data['isPromo'] = this.isPromo;
+    data['id'] = id;
+    data['image'] = image;
+    data['title'] = title;
+    data['modelTag'] = modelTag;
+    data['rating'] = rating;
+    data['category'] = category;
+    data['brand'] = brand;
+    data['price'] = price;
+    data['isPromo'] = isPromo;
+    print(data);
     return data;
   }
 }

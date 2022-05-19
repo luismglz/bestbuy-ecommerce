@@ -3,8 +3,9 @@ import 'package:best_buy/common/constants.dart';
 
 class ListSection extends StatelessWidget {
   final String title;
+  final Function() onTap;
 
-  const ListSection(this.title, {Key? key}) : super(key: key);
+  const ListSection(this.title, this.onTap, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class ListSection extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 19.0, height: 1, fontWeight: FontWeight.w600),
               ),
+              onTap(),
               InkWell(
                 child: Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,

@@ -21,8 +21,8 @@ class DemoElement {
     Category('assets/icons/printing.png', 'Printing'),
   ];
 
-  static List<Product> products = [
-    Product(
+  /*static List<Product> products = [
+    /*Product(
         id: (uuid.generate()),
         image: 'assets/images/macbook.jpg',
         title:
@@ -32,6 +32,6 @@ class DemoElement {
         category: 'Laptop',
         brand: 'Apple',
         price: 1749.00,
-        isPromo: false)
-  ];
+        isPromo: false)*/
+  ];*/
 }
