@@ -39,52 +39,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
           }).toList()),
       ListSection(
-        'Today\'s popular picks',
-        () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => ProductDetail()));
-        },
+        'Today\'s popular picks'
       ),
-      Container(
-        child: FutureBuilder(
+        FutureBuilder(
             future: productServices.getProducts(),
             builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (snapshot.hasData) {
+              if (!snapshot.hasData) {
+                print(snapshot.data);
                 return const Center(
                   child: Text('Loading...'),
                 );
               }
-              return Container(
-                height: 300,
-                child: ListView.builder(
-                    shrinkWrap: true,
+              return ListView.builder(
                     itemCount: snapshot.data.length,
                     itemBuilder: (BuildContext context, int index) {
+                      print(snapshot.data);
                       return Padding(
                         padding: const EdgeInsets.all(1.0),
                         child: ListTile(
-                          leading: Image(
-                            image: NetworkImage(snapshot.data[index].image),
-                          ),
                           title: Text(
                             snapshot.data[index].title,
                             style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          subtitle: Text(snapshot.data[index].price),
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ProductDetail(
-                                        // product: snapshot.data[index],
-                                        )));
-                          },
+                          subtitle: Text(snapshot.data[index].price)
                         ),
                       );
-                    }),
-              );
+                    });
             }),
-      )
+      
     ])));
   }
 }

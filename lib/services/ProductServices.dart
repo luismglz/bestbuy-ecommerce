@@ -9,13 +9,13 @@ class ProductServices {
     var url = Uri.parse('http://127.0.0.1:8000/api/product/');
     var response = await http.get(url);
 
+print(response);
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
 
-     //print(parsed);
     List<Product> products = parsed.map<Product>((json) => Product.fromJson(json)).toList();
 
-    print(products.toString());
     return products;
   }
 
 }
+
