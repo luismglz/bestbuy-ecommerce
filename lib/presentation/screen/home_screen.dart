@@ -38,35 +38,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   print(productServices.getProducts());
                 });
           }).toList()),
-      ListSection(
-        'Today\'s popular picks'
-      ),
-        FutureBuilder(
-            future: productServices.getProducts(),
-            builder: (BuildContext context, AsyncSnapshot snapshot) {
-              if (!snapshot.hasData) {
-                print(snapshot.data);
-                return const Center(
-                  child: Text('Loading...'),
+      ListSection('Today\'s popular picks'),
+      Container(
+          child: FutureBuilder(
+              future: productServices.getProducts(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (!snapshot.hasData) {
+                  return const Center(
+                    child: Text("Not data..."),
+                  );
+                }
+
+                return Container(
+                  child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ListTile(
+                          title: Text(snapshot.data[index].title),
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProductDetail()),
+                            );
+                          },
+                        );
+                      }),
                 );
-              }
-              return ListView.builder(
-                    itemCount: snapshot.data.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      print(snapshot.data);
-                      return Padding(
-                        padding: const EdgeInsets.all(1.0),
-                        child: ListTile(
-                          title: Text(
-                            snapshot.data[index].title,
-                            style: const TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          subtitle: Text(snapshot.data[index].price)
-                        ),
-                      );
-                    });
-            }),
-      
+              }))
     ])));
   }
 }

@@ -5,17 +5,19 @@ import 'dart:convert';
 
 class ProductServices {
 
+
+
   Future<List<Product>> getProducts() async {
-    var url = Uri.parse('http://127.0.0.1:8000/api/product/');
+    var url = Uri.parse('http://10.0.2.2:8000/api/product/');
     var response = await http.get(url);
 
-print(response);
+    print(response.body);
     final parsed = jsonDecode(response.body).cast<Map<String, dynamic>>();
 
-    List<Product> products = parsed.map<Product>((json) => Product.fromJson(json)).toList();
+    List<Product> products =
+        parsed.map<Product>((json) => Product.fromJson(json)).toList();
 
     return products;
   }
 
 }
-

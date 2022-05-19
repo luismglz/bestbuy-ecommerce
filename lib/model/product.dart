@@ -1,15 +1,15 @@
 import 'dart:ffi';
 
 class Product {
-  int? id;
+  num? id;
   String? image;
   String? title;
   String? modelTag;
-  double? rating;
+  num? rating;
   String? category;
   String? brand;
-  double? price;
-  bool? isPromo;
+  num? price;
+  num? isPromo;
 
   Product(
       {this.id,
@@ -27,10 +27,10 @@ class Product {
     image = json['image'];
     title = json['title'];
     modelTag = json['modelTag'];
-    rating = json['rating'].toDouble();
+    rating = json['rating'];
     category = json['category'];
     brand = json['brand'];
-    price = json['price'].toDouble();
+    price = json['price'];
     isPromo = json['isPromo'];
   }
 
@@ -45,7 +45,6 @@ class Product {
     data['brand'] = brand;
     data['price'] = price;
     data['isPromo'] = isPromo;
-    print(data);
     return data;
   }
 }
