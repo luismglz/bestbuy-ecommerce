@@ -1,4 +1,5 @@
 import 'package:another_flushbar/flushbar.dart';
+import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/model/product.dart';
 import 'package:best_buy/services/ProductServices.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: category.title,
                 iconPath: category.iconPath,
                 onTap: () {
-                  print(productServices.getProducts());
+                  print(category.title);
                 });
           }).toList()),
       ListSection('Today\'s popular picks'),
@@ -44,8 +45,24 @@ class _HomeScreenState extends State<HomeScreen> {
               future: productServices.getProducts(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (!snapshot.hasData) {
-                  return const Center(
-                    child: Text("Not data..."),
+                  return Center(
+                    heightFactor: 2,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 30),
+                          child: Image.network(
+                              "https://img.icons8.com/pastel-glyph/100/000000/page-not-found--v2.png"),
+                        ),
+                        const Text(
+                          "Not data",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: Constants.primaryColor,
+                              fontWeight: FontWeight.w700),
+                        )
+                      ],
+                    ),
                   );
                 }
 
@@ -57,37 +74,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: snapshot.data.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Padding(
-                            
-                            padding: const EdgeInsets.all(7.0),
-                            child: Card(
-                              
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5)
-                              ),
-                              child: Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Text(
-                                        snapshot.data[index].title,
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          overflow: TextOverflow.ellipsis,
-                                          )
-                                        ),
-                                        Image.network(
-                                          snapshot.data[index].image,
-                                          height: 70,
-                                          )
-                                      
-                                    ],
-                                  )
-                                ],
-                              )
-                              
-                            ),
-                          );
+                              padding: const EdgeInsets.all(2.0),
+                              child: PromoCard(
+                                product: snapshot.data[index],
+                              ));
                         }),
                   ),
                 );

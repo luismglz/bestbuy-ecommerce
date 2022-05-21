@@ -11,6 +11,7 @@ class SearchBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
           color: Colors.white,
+          
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.075),
@@ -22,12 +23,16 @@ class SearchBar extends StatelessWidget {
       child: TextFormField(
           decoration: const InputDecoration(
         icon: Icon(Icons.search, color: Constants.primaryColor),
+        border: InputBorder.none,
         hintText: 'What are you looking for?...',
         hintStyle: TextStyle(
-          color: Colors.white,
+          color: Colors.grey,
           fontSize: 14.0,
         ),
-      )),
+      ),
+      onChanged: (text){
+        print(text);
+      },),
     );
   }
 }

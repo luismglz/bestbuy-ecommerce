@@ -15,39 +15,42 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: 90,
-        width: 130,
-        decoration: BoxDecoration(color: Colors.white, boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.09),
-            offset: Offset.zero,
-            blurRadius: 12.0,
-          )
-        ]),
-        child: Center(
-          child: Wrap(
-            direction: Axis.vertical,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              Container(
-                height: 42,
-                width: 42,
-                child: Image.asset(
-                  iconPath,
-                  color: Constants.primaryColor,
+    return Card(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        ),
+      child: InkWell(
+        
+        borderRadius: BorderRadius.circular(10),
+        splashColor: Constants.primaryColor,
+        onTap: onTap,
+        child: Container(
+          height: 90,
+          width: 130,
+          child: Center(
+            child: Wrap(
+              
+              direction: Axis.vertical,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                Container(
+                  height: 42,
+                  width: 42,
+                  child: Image.asset(
+                    iconPath,
+                    color: Constants.primaryColor,
+                  ),
                 ),
-              ),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 16.0,
-                  height: 1.5,
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16.0,
+                    height: 1.5,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
