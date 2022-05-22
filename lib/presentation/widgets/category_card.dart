@@ -1,4 +1,5 @@
 import 'package:best_buy/common/constants.dart';
+import 'package:best_buy/presentation/screen/products_category.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -24,7 +25,14 @@ class CategoryCard extends StatelessWidget {
         
         borderRadius: BorderRadius.circular(10),
         splashColor: Constants.primaryColor,
-        onTap: onTap,
+        onTap: (){
+           Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => ProductsByCategory(
+                        category: title,
+                      )));
+        },
         child: Container(
           height: 90,
           width: 130,

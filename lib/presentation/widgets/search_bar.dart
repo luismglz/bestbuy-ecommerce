@@ -1,8 +1,15 @@
+import 'package:best_buy/presentation/widgets/promo_card.dart';
+import 'package:best_buy/services/ProductServices.dart';
 import 'package:flutter/material.dart';
 import 'package:best_buy/common/constants.dart';
 
+import '../../model/product.dart';
+
 class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key}) : super(key: key);
+  SearchBar({Key? key}) : super(key: key);
+
+  Product? product;
+  ProductServices productServices = ProductServices();
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +37,9 @@ class SearchBar extends StatelessWidget {
           fontSize: 14.0,
         ),
       ),
-      onChanged: (text){
-        print(text);
-      },),
+      onChanged: (String text){
+      },
+      ),
     );
   }
 }

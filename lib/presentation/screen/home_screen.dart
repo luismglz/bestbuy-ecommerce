@@ -86,33 +86,3 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-            
-             /*
-              PromoCard(
-                image: 'assets/images/pixel.jpg',
-                title: 'Google - Pixel 6 256GB (Unlocked) - Sorta Seafoam',
-                modelTag: 'Model: GA03910-US',
-                ratingPath: 'assets/icons/rating41.svg',
-                price: 649.00,
-                onTap: () {},
-              ),
-              PromoCard(
-                image: 'assets/images/galaxy.jpg',
-                title:
-                    'Samsung - Galaxy S22 Ultra 128GB (Unlocked) - Phantom Black',
-                modelTag: 'Model: SM-S908UZKAXAA',
-                ratingPath: 'assets/icons/rating5.svg',
-                price: 1199.99,
-                onTap: () {
-                  print()
-                },
-              ),
-              PromoCard(
-                image: 'assets/images/iphone.jpg',
-                title:
-                    'Apple - iPhone 13 Pro 5G 128GB - Alpine Green (Unlocked)',
-                modelTag: 'Model: MNDT3LL/A',
-                ratingPath: 'assets/icons/rating5.svg',
-                price: 899.99,
-                onTap: () {},
-              ),*/
