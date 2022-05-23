@@ -1,6 +1,8 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/model/product.dart';
+import 'package:best_buy/presentation/screen/add_product.dart';
+import 'package:best_buy/presentation/widgets/navigation_drawer.dart';
 import 'package:best_buy/services/ProductServices.dart';
 import 'package:flutter/material.dart';
 import 'package:best_buy/presentation/widgets/category_card.dart';
@@ -12,7 +14,7 @@ import 'package:best_buy/model/demo_element.dart';
 import 'package:best_buy/presentation/screen/product_detail.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, required String title}) : super(key: key);
+  const HomeScreen();
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -26,6 +28,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom:30),
+        child: FloatingActionButton(
+          backgroundColor: Constants.secondaryColor,
+          elevation: 1,
+          
+          child: Icon(
+            Icons.add,
+            color: Constants.primaryColor),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const AddProduct()));
+          },
+        ),
+      ),
+      drawer: NavigationDrawerWidget(),
         body: SafeArea(
             child: Column(children: [
       const Header(),
@@ -82,7 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               }))
-    ])));
+    ])),
+    
+    );
   }
 }
 

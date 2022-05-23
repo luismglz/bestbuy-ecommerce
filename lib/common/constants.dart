@@ -9,6 +9,8 @@ class Constants {
   static const secondaryColor = Color.fromRGBO(255, 241, 0, 1.0);
 
   static const isOfferColor = Color.fromRGBO(187, 6, 40, 1.0);
+
+  static const backgroundGrayColor = Color.fromRGBO(245, 245, 245, 1.0);
 }
 
 

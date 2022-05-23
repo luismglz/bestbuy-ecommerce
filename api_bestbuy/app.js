@@ -84,7 +84,7 @@ app.post('/products/new', (req, res) => {
     image: req.body.image,
     title: req.body.title,
     modelTag: req.body.modelTag,
-    rating: req.body.rating,
+    rating: 0,
     category: req.body.category,
     brand: req.body.brand,
     price: req.body.price,
