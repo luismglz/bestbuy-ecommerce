@@ -55,7 +55,8 @@ class ProductsByCategory extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(bottom: 30),
                           child: Image.network(
-                              "https://img.icons8.com/pastel-glyph/100/000000/page-not-found--v2.png"),
+                              "https://img.icons8.com/pastel-glyph/100/000000/page-not-found--v2.png",
+                              ),
                         ),
                         const Text(
                           "Not data",
