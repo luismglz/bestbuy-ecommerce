@@ -1,5 +1,8 @@
 import 'dart:io';
 import 'package:best_buy/common/constants.dart';
+import 'package:best_buy/model/navigation.dart';
+import 'package:best_buy/presentation/screen/locations.dart';
+import 'package:best_buy/presentation/screen/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -23,6 +26,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+
+    List<Widget> screens = [
+      const HomeScreen(),
+      const Locations(),
+      const Profile()
+    ];
     //Set statusbar color
     SystemChrome.setSystemUIOverlayStyle(
         const SystemUiOverlayStyle(statusBarColor: Constants.primaryColor));
@@ -32,7 +42,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: screens[0],
     );
   }
 }

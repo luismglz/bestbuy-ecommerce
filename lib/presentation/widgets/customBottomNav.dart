@@ -1,14 +1,15 @@
 import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/model/navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class CustomBottomNav extends StatelessWidget {
-  const CustomBottomNav({ Key? key }) : super(key: key);
+class _CustomBottomNavState extends State<CustomBottomNav>{
+
+//const CustomBottomNav({ Key? key }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
-    final nav = Provider.of<Navigation>(context);
+   // final nav = Provider.of<Navigation>(context);
 
 
     return BottomNavigationBar(
@@ -17,8 +18,8 @@ class CustomBottomNav extends StatelessWidget {
       selectedItemColor: Constants.primaryColorShadow,
       unselectedItemColor: Colors.black54,
       backgroundColor: Constants.backgroundGrayColor,
-      currentIndex: nav.currentPage,
-      onTap: (i) => nav.currentPage = i,
+      currentIndex: 0,
+      onTap: (i) => {print(i)},
       items: const[
         BottomNavigationBarItem(
           icon: Icon(
@@ -38,4 +39,16 @@ class CustomBottomNav extends StatelessWidget {
       ],
     );
   }
+
+
+
+}
+
+class CustomBottomNav extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _CustomBottomNavState();
+ 
+ 
+
+
 }

@@ -14,7 +14,6 @@ import 'package:best_buy/presentation/widgets/list_section.dart';
 import 'package:best_buy/presentation/widgets/promo_card.dart';
 import 'package:best_buy/model/demo_element.dart';
 import 'package:best_buy/presentation/screen/product_detail.dart';
-import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen();
@@ -28,11 +27,11 @@ class _HomeScreenState extends State<HomeScreen> {
   ProductServices productServices = ProductServices();
   bool isLoading = true;
 
+  
+
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => Navigation(),
-      child: Scaffold(
+    return  Scaffold(
         floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom:30),
@@ -109,8 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ])),
       bottomNavigationBar: CustomBottomNav(),
       
-      ),
-    );
+      );
   }
 }
 
