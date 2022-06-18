@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "892133151630",
+    "project_id": "bestbuycrm-9782c",
+    "storage_bucket": "bestbuycrm-9782c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892133151630:android:511a49ad82e046d7798adf",
+        "android_client_info": {
+          "package_name": "com.example.best_buy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892133151630-f1dc50m4dm6evij5beufbrpq2r6jjj5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmxaxzUQeWO56oCcnzGeEyK8RrkNV9AV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892133151630-f1dc50m4dm6evij5beufbrpq2r6jjj5s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "892133151630-6q3uv0qftqqqftfkf5o7q3gn5fje9odr.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bestBuy"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

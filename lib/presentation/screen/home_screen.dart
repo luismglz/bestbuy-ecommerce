@@ -2,6 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/model/product.dart';
 import 'package:best_buy/presentation/screen/add_product.dart';
+import 'package:best_buy/presentation/widgets/customBottomNav.dart';
 import 'package:best_buy/presentation/widgets/navigation_drawer.dart';
 import 'package:best_buy/services/ProductServices.dart';
 import 'package:flutter/material.dart';
@@ -101,6 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               }))
     ])),
+    bottomNavigationBar: CustomBottomNav(),
     
     );
   }
