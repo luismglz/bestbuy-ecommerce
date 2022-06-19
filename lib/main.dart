@@ -4,6 +4,7 @@ import 'package:best_buy/presentation/screen/locations.dart';
 import 'package:best_buy/presentation/screen/login.dart';
 import 'package:best_buy/presentation/screen/profile.dart';
 import 'package:best_buy/presentation/screen/tabs_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -25,12 +26,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     
     
-   // var index = NavModel.selectedIndex;
+   
 
     List<Widget> screens = [
       const HomeScreen(),

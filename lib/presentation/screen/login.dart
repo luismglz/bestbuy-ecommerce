@@ -18,7 +18,6 @@ class Login extends StatelessWidget {
               CardContainer(
                   child: Column(
                 children: [
-                  SizedBox(height: 10),
                   Text("Login",
                       style: GoogleFonts.lato(
                           textStyle: TextStyle(

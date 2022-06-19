@@ -51,8 +51,8 @@ set currentPage(int value){
 
   _pageController.animateToPage(
     value, 
-    duration: Duration(milliseconds: 250), 
-    curve: Curves.easeInOut
+    duration: Duration(milliseconds: 200), 
+    curve: Curves.linearToEaseOut
     );
   notifyListeners();
 }
