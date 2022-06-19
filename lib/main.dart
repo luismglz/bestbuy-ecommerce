@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:best_buy/common/constants.dart';
-import 'package:best_buy/model/NavModel.dart';
 import 'package:best_buy/presentation/screen/locations.dart';
+import 'package:best_buy/presentation/screen/login.dart';
 import 'package:best_buy/presentation/screen/profile.dart';
-import 'package:best_buy/presentation/widgets/customBottomNav0.dart';
+import 'package:best_buy/presentation/screen/tabs_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -19,7 +19,7 @@ import 'package:best_buy/presentation/screen/home_screen.dart';
 void main() {
   HttpOverrides.global = new MyHttpOverrides();
   runApp(const MyApp());
-  print(NavModel.selectedIndex);
+ // print(NavModel.selectedIndex);
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     
-    var index = NavModel.selectedIndex;
+   // var index = NavModel.selectedIndex;
 
     List<Widget> screens = [
       const HomeScreen(),
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: NavModel.selectedIndex == 0 ? screens[0] : NavModel.selectedIndex == 1 ? screens[1]  : screens[2],
+      home: Login()//TabsPage(),
     );
   }
 }

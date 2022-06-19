@@ -1,5 +1,7 @@
-import 'package:best_buy/presentation/widgets/customBottomNav.dart';
+import 'package:best_buy/common/constants.dart';
+import 'package:best_buy/presentation/widgets/card_container.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Locations extends StatelessWidget {
   const Locations({ Key? key }) : super(key: key);
@@ -7,11 +9,26 @@ class Locations extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-      child: Row(),  
-      ),
-      bottomNavigationBar: CustomBottomNav(),
-      
-    );
+        backgroundColor: Constants.backgroundGrayColor,
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 40),
+              CardContainer(
+                  child: Column(
+                children: [
+                  SizedBox(height: 10),
+                  Text("Locations",
+                      style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              fontSize: 30,
+                              color: Constants.primaryColorShadow,
+                              fontWeight: FontWeight.bold))),
+                  SizedBox(height: 30),
+                ],
+              ))
+            ],
+          ),
+        ));
   }
 }
