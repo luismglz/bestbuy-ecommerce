@@ -1,3 +1,4 @@
+import 'package:best_buy/presentation/widgets/customBottomNav.dart';
 import 'package:flutter/material.dart';
 
 class Locations extends StatelessWidget {
@@ -5,7 +6,11 @@ class Locations extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      body: Container(
+      child: Row(),  
+      ),
+      bottomNavigationBar: CustomBottomNav(),
       
     );
   }
