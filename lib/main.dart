@@ -3,6 +3,7 @@ import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/presentation/screen/locations.dart';
 import 'package:best_buy/presentation/screen/login.dart';
 import 'package:best_buy/presentation/screen/profile.dart';
+import 'package:best_buy/presentation/screen/signup.dart';
 import 'package:best_buy/presentation/screen/tabs_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Login()//TabsPage(),
+      home: SignUp()//TabsPage(),
     );
   }
 }
