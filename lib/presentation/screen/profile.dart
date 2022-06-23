@@ -60,7 +60,7 @@ class Profile extends StatelessWidget {
                             padding:  EdgeInsets.symmetric(
                                 horizontal: 50, vertical: 10),
                             child: Text(
-                              "Signup",
+                              "Sign Out",
                               style:  TextStyle(color: Colors.white),
                             ),
                           )),
