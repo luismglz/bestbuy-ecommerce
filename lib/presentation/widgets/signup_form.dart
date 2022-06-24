@@ -13,31 +13,25 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class SignupForm extends StatefulWidget {
-  const SignupForm({ Key? key }) : super(key: key);
+  const SignupForm({Key? key}) : super(key: key);
 
   @override
   State<SignupForm> createState() => _SignupFormState();
 }
 
 class _SignupFormState extends State<SignupForm> {
-
-
   final TextEditingController controllerEmailUser = TextEditingController();
 
   final TextEditingController controllerPasswordUser = TextEditingController();
 
-  final TextEditingController controllerConfirmPasswordUser = TextEditingController();
+  final TextEditingController controllerConfirmPasswordUser =
+      TextEditingController();
 
   Future<FirebaseApp> initializeFirebase() async {
     FirebaseApp firebaseApp = await Firebase.initializeApp();
     return firebaseApp;
   }
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +43,7 @@ class _SignupFormState extends State<SignupForm> {
               child: Form(
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 child: Column(
-                  crossAxisAlignment:CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     TextFormField(
                         controller: controllerEmailUser,
@@ -66,7 +60,7 @@ class _SignupFormState extends State<SignupForm> {
                         decoration: InputDecorations.addProductInputDecoration(
                             hintText: "Enter your password",
                             labelText: "Password")),
-                            SizedBox(height: 20),
+                    SizedBox(height: 20),
                     TextFormField(
                         controller: controllerConfirmPasswordUser,
                         autocorrect: false,
@@ -100,21 +94,20 @@ class _SignupFormState extends State<SignupForm> {
                                   context, " ", "Password tag is obligatory")
                               : null;
                           if (isEmptySignupForm(
-                              controllerEmailUser, 
+                              controllerEmailUser,
                               controllerPasswordUser,
                               controllerConfirmPasswordUser)) {
                             Alert.displayMessage(
                                 context, "All fields are required", "Error");
                           }
 
-                          if(!isEqualPassword(
-                            controllerPasswordUser, 
-                            controllerConfirmPasswordUser)){
-                              Alert.displayMessage(
+                          if (!isEqualPassword(controllerPasswordUser,
+                              controllerConfirmPasswordUser)) {
+                            Alert.displayMessage(
                                 context, " ", "Password does not match",
                                 BackgroundColorCustom: Colors.red);
-                            }else{
-                              if (!isEmptySignupForm(
+                          } else {
+                            if (!isEmptySignupForm(
                                 controllerEmailUser,
                                 controllerPasswordUser,
                                 controllerConfirmPasswordUser)) {
@@ -131,15 +124,31 @@ class _SignupFormState extends State<SignupForm> {
                                     "Successfully created account",
                                     BackgroundColorCustom: Colors.green);
                               }
-
-                              /* createUserWithEmailAndPassword(
-                                email: controllerEmailUser.text,
-                                password: controllerPasswordUser.text,
-                                context: context);*/
                             }
-
-                            }
-                          
+                          }
+                        }),
+                    SizedBox(height: 60),
+                    Text("Does have an account?"),
+                    MaterialButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        disabledColor: Colors.grey,
+                        elevation: 0,
+                        color: Colors.transparent,
+                        child: Container(
+                            child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 50, vertical: 10),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Constants.primaryColor,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )),
+                        onPressed: () async {
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => Login()));
                         })
                   ],
                 ),
@@ -153,10 +162,7 @@ class _SignupFormState extends State<SignupForm> {
         });
   }
 
-
-
-
-bool isEmptyField(TextEditingController fieldController) {
+  bool isEmptyField(TextEditingController fieldController) {
     return fieldController.text.isEmpty ? true : false;
   }
 
@@ -177,20 +183,21 @@ bool isEmptyField(TextEditingController fieldController) {
             BackgroundColorCustom: Colors.red);
       } else if (e.code == 'email-already-in-use') {
         print('The account already exists for that email.');
-        Alert.displayMessage(context, " ", "The account already exists for that email.",
+        Alert.displayMessage(
+            context, " ", "The account already exists for that email.",
             BackgroundColorCustom: Colors.red);
       }
     }
     return user;
   }
 
-
   bool isEmptySignupForm(
-      TextEditingController emailValue, 
-      TextEditingController passwordValue,
-      TextEditingController confirmPasswordValue,
+    TextEditingController emailValue,
+    TextEditingController passwordValue,
+    TextEditingController confirmPasswordValue,
   ) {
-    if (emailValue.text.isEmpty || passwordValue.text.isEmpty ||
+    if (emailValue.text.isEmpty ||
+        passwordValue.text.isEmpty ||
         confirmPasswordValue.text.isEmpty) {
       return true;
     }
@@ -199,11 +206,8 @@ bool isEmptyField(TextEditingController fieldController) {
     }
   }
 
-
-bool isEqualPassword(
-  TextEditingController passwordValue,
-  TextEditingController confirmPasswordValue){
+  bool isEqualPassword(TextEditingController passwordValue,
+      TextEditingController confirmPasswordValue) {
     return passwordValue.text == confirmPasswordValue.text ? true : false;
   }
-
 }

@@ -33,16 +33,19 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom:30),
-          child: FloatingActionButton(
-            backgroundColor: Constants.secondaryColor,
-            elevation: 1,
-            
-            child: Icon(
-              Icons.add,
-              color: Constants.primaryColor),
-            onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const AddProduct()));
-            },
+          child: Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: FloatingActionButton(
+              backgroundColor: Constants.secondaryColor,
+              elevation: 1,
+              
+              child: Icon(
+                Icons.add,
+                color: Constants.primaryColor),
+              onPressed: (){
+                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => const AddProduct()));
+              },
+            ),
           ),
         ),
         drawer: NavigationDrawerWidget(),

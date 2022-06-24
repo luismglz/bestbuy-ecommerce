@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:best_buy/common/Alert.dart';
 import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/presentation/widgets/card_container.dart';
 import 'package:flutter/material.dart';
@@ -12,65 +15,58 @@ class Locations extends StatefulWidget {
 }
 
 class _LocationsState extends State<Locations> {
-
-    MapboxMapController? mapController;
+  MapboxMapController? mapController;
   var isLight = true;
+
+  var lightMap = "mapbox://styles/luisglezl/cl4rmbedo001815qoje6mlr27";
+  var darkMap = "mapbox://styles/luisglezl/cl4rmjg86003214o9qivbwreh";
 
   _onMapCreated(MapboxMapController controller) {
     mapController = controller;
   }
 
   _onStyleLoadedCallback() {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text("Style loaded :)"),
-      backgroundColor: Theme.of(context).primaryColor,
-      duration: Duration(seconds: 1),
-    ));
+    isLight
+        ? Alert.displaySmallMessage(context, "Light Mode ☀️",
+            BackgroundColorCustom: Constants.primaryColor)
+        : Alert.displaySmallMessage(context, "Dark Mode 🌙",
+            BackgroundColorCustom: Constants.primaryColorShadow);
   }
+
+  final initPosition = LatLng(34.668145, 135.499907);
+  LatLng center = LatLng(19.3936, -99.1704);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: FloatingActionButton(
-            child: Icon(Icons.swap_horiz),
-            onPressed: () => setState(
-              () => isLight = !isLight,
-              
+        floatingActionButton:
+            Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 30),
+            child: FloatingActionButton(
+              backgroundColor: Constants.primaryColorShadow,
+              child: Icon(Icons.my_location),
+              onPressed: () {},
             ),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: FloatingActionButton(
+              backgroundColor: Constants.primaryColor,
+              child: isLight ? Icon(Icons.dark_mode) : Icon(Icons.light_mode),
+              onPressed: () => setState(
+                () => isLight = !isLight,
+              ),
+            ),
+          ),
+        ]),
         body: MapboxMap(
-          styleString: isLight ? MapboxStyles.LIGHT : MapboxStyles.DARK,
-          accessToken: "sk.eyJ1IjoibHVpc2dsZXpsIiwiYSI6ImNsNHFtNDVpejA2MDAzYnJ6OWh4dXd1YTQifQ.B3y4MXbO1Ai8CRWmsvdp3A",
+          styleString: isLight ? lightMap : darkMap,
+          accessToken:
+              "sk.eyJ1IjoibHVpc2dsZXpsIiwiYSI6ImNsNHFtNDVpejA2MDAzYnJ6OWh4dXd1YTQifQ.B3y4MXbO1Ai8CRWmsvdp3A",
           onMapCreated: _onMapCreated,
-          initialCameraPosition: const CameraPosition(
-            target: LatLng(34.668145, 135.499907),
-            zoom: 7.5),
+          initialCameraPosition: CameraPosition(target: center, zoom: 14.0),
           onStyleLoadedCallback: _onStyleLoadedCallback,
         ));
-
-    /* Scaffold(
-        backgroundColor: Constants.backgroundGrayColor,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(height: 40),
-              CardContainer(
-                  child: Column(
-                children: [
-                  const SizedBox(height: 10),
-                  Text("Locations",
-                      style: GoogleFonts.lato(
-                          textStyle: const TextStyle(
-                              fontSize: 30,
-                              color: Constants.primaryColorShadow,
-                              fontWeight: FontWeight.bold))),
-                  SizedBox(height: 30),
-                ],
-              ))
-            ],
-          ),
-        ));*/
   }
 }
