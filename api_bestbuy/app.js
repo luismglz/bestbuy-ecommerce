@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 let connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'hola123',
+  password: 'Hola123',
   database: 'bestbuy'
 });
 

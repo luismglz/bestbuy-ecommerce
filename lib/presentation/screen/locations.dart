@@ -5,7 +5,7 @@ import 'package:best_buy/common/constants.dart';
 import 'package:best_buy/presentation/widgets/card_container.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mapbox_gl/mapbox_gl.dart';
+//import 'package:mapbox_gl/mapbox_gl.dart';
 
 class Locations extends StatefulWidget {
   const Locations({Key? key}) : super(key: key);
@@ -15,15 +15,15 @@ class Locations extends StatefulWidget {
 }
 
 class _LocationsState extends State<Locations> {
-  MapboxMapController? mapController;
+  //MapboxMapController? mapController;
   var isLight = true;
 
   var lightMap = "mapbox://styles/luisglezl/cl4rmbedo001815qoje6mlr27";
   var darkMap = "mapbox://styles/luisglezl/cl4rmjg86003214o9qivbwreh";
 
-  _onMapCreated(MapboxMapController controller) {
+  /*_onMapCreated(MapboxMapController controller) {
     mapController = controller;
-  }
+  }*/
 
   _onStyleLoadedCallback() {
     isLight
@@ -33,8 +33,8 @@ class _LocationsState extends State<Locations> {
             BackgroundColorCustom: Constants.primaryColorShadow);
   }
 
-  final initPosition = LatLng(34.668145, 135.499907);
-  LatLng center = LatLng(19.3936, -99.1704);
+ /* final initPosition = LatLng(34.668145, 135.499907);
+  LatLng center = LatLng(19.3936, -99.1704);*/
 
   @override
   Widget build(BuildContext context) {
@@ -60,13 +60,14 @@ class _LocationsState extends State<Locations> {
             ),
           ),
         ]),
-        body: MapboxMap(
+        body:/* MapboxMap(
           styleString: isLight ? lightMap : darkMap,
           accessToken:
               "sk.eyJ1IjoibHVpc2dsZXpsIiwiYSI6ImNsNHFtNDVpejA2MDAzYnJ6OWh4dXd1YTQifQ.B3y4MXbO1Ai8CRWmsvdp3A",
           onMapCreated: _onMapCreated,
           initialCameraPosition: CameraPosition(target: center, zoom: 14.0),
           onStyleLoadedCallback: _onStyleLoadedCallback,
-        ));
+        )*/
+        Scaffold());
   }
 }
