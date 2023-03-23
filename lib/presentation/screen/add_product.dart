@@ -16,6 +16,7 @@ class AddProduct extends StatelessWidget {
             children: [
               SizedBox(height: 40),
               CardContainer(
+                height: 750,
                   child: Column(
                 children: [
                   SizedBox(height: 10),
