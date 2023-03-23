@@ -80,12 +80,13 @@ class ProductInformation extends StatelessWidget {
               style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
             ),
             Text(
-              product!.isPromo! == 1 ? " OFFER " : "",
+              product!.isPromo! == 1 ? "OFFER " : "",
               style: const TextStyle(
                   fontSize: 15,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  backgroundColor: Constants.isOfferColor),
+                  backgroundColor: Constants.isOfferColor
+                  ),
             ),
           ],
         ),

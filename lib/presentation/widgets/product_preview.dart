@@ -11,7 +11,7 @@ class ProductPreview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 0),
+      padding: const EdgeInsets.only(top: 15),
       child: Container(
         width: double.infinity,
         height: 430,
